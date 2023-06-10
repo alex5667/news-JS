@@ -4,14 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
-
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
     mode: 'development',
     optimization: {
-        minimize: false
+        minimize: false,
     },
     module: {
         rules: [
@@ -29,8 +28,11 @@ const baseConfig = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
             {
-                test: /\.(?:|gif|png|jpg|svg)$/,
+                test: /\.(gif|png|jpe?g|svg)$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[name][ext]',
+                },
             },
         ],
     },
@@ -55,19 +57,22 @@ const baseConfig = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'src/components/img'),
-                    to: path.resolve(__dirname, 'dist/components/img')
-                }
+                    from: path.resolve(__dirname, 'src/assets'),
+                    to: 'assets',
+                    globOptions: {
+                        ignore: ['*.ts', '*.js', '*.html'],
+                    },
+                },
             ],
         }),
-
-
     ],
 };
 
 module.exports = ({ mode }) => {
     const isProductionMode = mode === 'prod';
-    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+    const envConfig = isProductionMode
+        ? require('./webpack.prod.config')
+        : require('./webpack.dev.config');
 
     return merge(baseConfig, envConfig);
 };

@@ -4,10 +4,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "ESNext",
-      "dom",
-    ],
+    "lib": ["ESNext", "dom"],
     "module": "commonjs",
     "target": "esnext",
     "moduleResolution": "node",
@@ -20,7 +17,7 @@
     "strict": true,
     "declaration": true,
     "sourceMap": true,
-    "allowJs": true,
+    "allowJs": true
   },
   "exclude": [
     "src/**/*.spec.*",
@@ -28,8 +25,5 @@
     "**/__tests__/*",
     "**/__mocks__/*"
   ],
-  "include": [
-    "src",
-    "typings"
-  ]
+  "include": ["src", "typings"]
 }
