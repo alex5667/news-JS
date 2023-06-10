@@ -1,0 +1,61 @@
+//====================================================================================================
+.footer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  // .footer__container
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+
+
+    // @include adaptiveValue("padding-top", 90, 0);
+  }
+
+  // .footer__mygit
+
+  &__mygit {
+
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    img{
+      width: 30px;
+      height: 20px;
+    }
+  }
+
+  // .footer__year
+
+  &__year {
+    display: flex;
+    font-size: rem(20);
+    color: #000;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+
+  }
+
+  // .footer__rs
+
+  &__rs {
+
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    img{
+      width: 40px;
+      height: 30px;
+    }
+  }
+}
+
+
+//====================================================================================================

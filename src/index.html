@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>NewsPortal</title>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>NewsPortal</title>
+</head>
+
+<body>
+    <div class="wrapper">
         <header>
-            <h1>News Portal</h1>
+            <div class="header__container">
+                <h1>News Portal</h1>
+            </div>
         </header>
         <main>
-            <div class="sources buttons"></div>
-            <div class="news"></div>
+            <div class="main__container">
+                <div class="sources buttons"></div>
+                <div class="news"></div>
+            </div>
         </main>
         <footer>
-            <p class="copyright">
-                Copyright <a href="https://newsapi.org">NewsAPI</a>
-            </p>
+
         </footer>
 
         <template id="sourceItemTemp">
@@ -46,6 +51,9 @@
             </div>
         </template>
 
-        <script src="./index.js"></script>
-    </body>
+    </div>
+
+
+</body>
+
 </html>
