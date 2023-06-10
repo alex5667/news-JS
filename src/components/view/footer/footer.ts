@@ -2,28 +2,28 @@ import './footer.scss';
 
 export default class Footer {
   render(): void {
-    const footerContainer: HTMLDivElement = document.createElement('div') as HTMLDivElement;
+    const footerContainer = document.createElement('div') as HTMLDivElement;
     footerContainer.classList.add('footer__container');
-    const footerMygit: HTMLDivElement = document.createElement('div') as HTMLDivElement;
+    const footerMygit = document.createElement('div') as HTMLDivElement;
     footerMygit.classList.add('footer__mygit');
-    const mygitLink: HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+    const mygitLink = document.createElement('a') as HTMLAnchorElement;
     mygitLink.classList.add('mygit__link');
     mygitLink.href = 'https://github.com/alex5667';
-    const mygitImg: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+    const mygitImg = document.createElement('img') as HTMLImageElement;
     mygitImg.src = `../../../assets/github-svgrepo-com.svg`;
     mygitImg.alt = `Github link`;
-    const footerYear: HTMLDivElement = document.createElement('div') as HTMLDivElement;
+    const footerYear = document.createElement('div') as HTMLDivElement;
     footerYear.classList.add('footer__year');
     footerYear.innerHTML = `2023`;
-    const footerRs: HTMLDivElement = document.createElement('div') as HTMLDivElement;
+    const footerRs = document.createElement('div') as HTMLDivElement;
     footerRs.classList.add('footer__rs');
-    const rsLink: HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+    const rsLink = document.createElement('a') as HTMLAnchorElement;
     rsLink.classList.add('rs__link');
     rsLink.href = 'https://rs.school/js/';
-    const rsImg: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+    const rsImg = document.createElement('img') as HTMLImageElement;
     rsImg.src = `../../../assets/rs_school_js.svg`;
     rsImg.alt = `Rs-school link`;
-    const footer: HTMLElement = document.querySelector('footer') as HTMLElement;
+    const footer = document.querySelector('footer') as HTMLElement;
     footer.appendChild(footerContainer);
     footerContainer.appendChild(footerMygit);
     footerMygit.appendChild(mygitLink);

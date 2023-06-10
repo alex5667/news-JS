@@ -1,31 +1,34 @@
 import AppController from '../controller/controller';
-import { AppView } from '../view/appView';
-import { IDrawNewsData } from '../view/appView';
-import { IDrawSourcesData } from '../view/appView';
-import Footer from '../view/footer/footer'
-
-
-export interface IApp {
-    start: () => void;
-}
+import AppView, { IDrawNewsData, IDrawSourcesData } from '../view/appView';
+import Footer from '../view/footer/footer';
 
 class App {
-    controller: AppController;
-    view: AppView;
-    footer: Footer;
-    constructor() {
-        this.controller = new AppController();
-        this.view = new AppView();
-        this.footer= new Footer();
-    }
+  private controller: AppController;
+  private view: AppView;
+  private footer: Footer;
 
-    start() {
-        const sources: HTMLDivElement = document.querySelector('.sources') as HTMLDivElement;
-        if (sources) sources.addEventListener('click', (e) => this.controller.getNews(e, (data?: IDrawNewsData) => this.view.drawNews(data)));
-        this.controller.getSources((data?: IDrawSourcesData) => this.view.drawSources(data));
-        this.footer.render();
-    }
+  constructor() {
+    this.controller = new AppController();
+    this.view = new AppView();
+    this.footer = new Footer();
+  }
 
+  public start(): void {
+    const sources = document.querySelector('.sources') as HTMLDivElement;
+    if (sources) {
+      sources.addEventListener('click', (e) => this.handleSourcesClick(e));
+    }
+    this.controller.getSources((data?: IDrawSourcesData) =>
+      this.view.drawSources(data)
+    );
+    this.footer.render();
+  }
+
+  private handleSourcesClick(e: MouseEvent): void {
+    this.controller.getNews(e, (data?: IDrawNewsData) =>
+      this.view.drawNews(data)
+    );
+  }
 }
 
 export default App;
